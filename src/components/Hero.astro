@@ -1,0 +1,63 @@
+---
+import { ArrowDown, ArrowRight, Send } from "lucide-astro";
+import { heroStats } from "../data/portfolio";
+---
+
+<section id="home" class="hero-section relative min-h-[94svh] overflow-hidden bg-[#020607]" data-section>
+  <img
+    src="/images/hero-workspace.png"
+    alt="Premium dark workstation with futuristic developer interfaces and Madinah-inspired architectural details"
+    class="hero-visual absolute inset-0 h-full w-full object-cover object-[62%_50%]"
+    fetchpriority="high"
+  />
+  <div class="absolute inset-0 bg-[linear-gradient(90deg,rgba(2,6,7,0.98)_0%,rgba(2,6,7,0.84)_29%,rgba(2,6,7,0.38)_62%,rgba(2,6,7,0.54)_100%)]"></div>
+  <div class="soft-grid absolute inset-0 opacity-45" aria-hidden="true"></div>
+
+  <div class="site-shell relative z-10 flex min-h-[94svh] items-center pb-16 pt-28">
+    <div class="max-w-3xl">
+      <p class="hero-kicker section-kicker mb-6">
+        <span class="size-2 rounded-full bg-[#32f5c8]"></span>
+        Web Developer at Artemesis Company
+      </p>
+
+      <h1 class="hero-title max-w-4xl text-balance text-5xl font-black leading-[0.98] tracking-[0] text-white sm:text-6xl lg:text-8xl">
+        <span class="hero-title-line"><span>Mohammad</span></span>
+        <span class="hero-title-line"><span class="gradient-text">Al Amin</span></span>
+      </h1>
+
+      <p class="hero-copy mt-7 max-w-2xl text-pretty text-lg leading-8 text-white/76 sm:text-xl">
+        Web Developer crafting Laravel websites, Vue.js and Next.js experiences, Flutter mobile apps, and AI automation systems. CS Student at Islamic University of Madinah.
+      </p>
+
+      <div class="hero-actions mt-9 flex flex-col gap-3 sm:flex-row">
+        <a href="#projects" class="premium-button button-primary magnetic">
+          View Projects
+          <ArrowRight size={19} strokeWidth={2.4} />
+        </a>
+        <a href="#contact" class="premium-button button-secondary magnetic">
+          Contact Me
+          <Send size={18} strokeWidth={2.3} />
+        </a>
+      </div>
+
+      <div class="hero-metrics mt-12 grid max-w-2xl grid-cols-3 gap-3">
+        {
+          heroStats.map((stat) => (
+            <div class="glass-panel rounded-[1.15rem] px-4 py-4">
+              <div class="text-2xl font-black text-white sm:text-3xl">{stat.value}</div>
+              <div class="mt-1 text-xs font-semibold uppercase tracking-[0] text-white/56">{stat.label}</div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+
+  <a
+    href="#about"
+    class="hero-scroll magnetic absolute bottom-6 left-1/2 z-10 hidden -translate-x-1/2 items-center gap-2 rounded-full border border-white/12 bg-white/7 px-4 py-2 text-sm font-bold text-white/72 backdrop-blur md:flex"
+  >
+    Scroll
+    <ArrowDown size={16} />
+  </a>
+</section>

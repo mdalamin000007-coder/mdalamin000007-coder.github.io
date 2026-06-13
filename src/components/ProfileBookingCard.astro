@@ -1,0 +1,91 @@
+---
+import { ArrowUpRight, BadgeCheck, CalendarCheck, Code2, Sparkles } from "lucide-astro";
+import { profileCard } from "../data/portfolio";
+---
+
+<section class="profile-feature section-pad relative overflow-hidden bg-[#050909]" data-section>
+  <div class="absolute inset-0 opacity-55" aria-hidden="true">
+    <div class="absolute left-1/2 top-0 h-72 w-72 -translate-x-1/2 rounded-full bg-[#d9aa59]/18 blur-[90px]"></div>
+    <div class="absolute bottom-0 right-12 h-72 w-72 rounded-full bg-[#32f5c8]/10 blur-[100px]"></div>
+    <div class="soft-grid absolute inset-0"></div>
+  </div>
+
+  <div class="site-shell relative z-10 grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+    <div class="profile-booking-card mx-auto w-full max-w-[24rem]" data-animate>
+      <div class="relative overflow-hidden rounded-[2rem] border border-[#d9aa59]/46 bg-[#050607] shadow-[0_0_70px_rgba(217,170,89,0.26)]">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_34%,rgba(217,170,89,0.56),transparent_32%),linear-gradient(140deg,rgba(217,170,89,0.24),transparent_38%,rgba(50,245,200,0.1))]"></div>
+        <div class="absolute inset-x-8 top-8 aspect-square rounded-full bg-gradient-to-br from-[#f8c95d] to-[#8b5c1b]"></div>
+        <div class="absolute inset-x-8 top-8 aspect-square rounded-full border border-white/20"></div>
+
+        <div class="relative min-h-[27rem] px-8 pt-10">
+          <div class="ml-auto grid size-12 place-items-center rounded-2xl border border-white/12 bg-black/30 text-sm font-black text-white backdrop-blur">
+            MA
+          </div>
+
+          <div class="profile-card-photo absolute left-1/2 top-[4.4rem] size-[17rem] -translate-x-1/2 overflow-hidden rounded-full border border-white/20 bg-black/40 shadow-[0_24px_70px_rgba(0,0,0,0.48)]">
+            <img
+              src={profileCard.image}
+              alt="Mohammad Al Amin portrait"
+              class="profile-avatar-image h-full w-full object-cover object-[50%_18%]"
+              loading="lazy"
+            />
+          </div>
+
+          <div class="absolute inset-x-0 bottom-[5.25rem] h-40 bg-gradient-to-t from-[#050607] via-[#050607]/84 to-transparent"></div>
+
+          <div class="absolute inset-x-5 bottom-6 text-center">
+            <h2 class="text-balance text-3xl font-black leading-none text-white drop-shadow-[0_3px_14px_rgba(0,0,0,0.58)]">
+              {profileCard.name}
+            </h2>
+            <p class="mt-2 text-sm font-bold text-white/72">{profileCard.subtitle}</p>
+          </div>
+        </div>
+      </div>
+
+      <a
+        href={profileCard.href}
+        target="_blank"
+        rel="noreferrer"
+        class="profile-booking-strip magnetic relative z-10 mx-auto -mt-10 block w-[88%] rounded-[1.25rem] border border-[#d9aa59]/34 bg-[#120e10]/95 p-5 shadow-[0_24px_70px_rgba(0,0,0,0.45)] backdrop-blur"
+      >
+        <p class="text-sm font-black uppercase tracking-[0] text-[#32f5c8]">{profileCard.availability}</p>
+        <div class="mt-2 flex items-center justify-between gap-3">
+          <h3 class="text-xl font-black text-white">{profileCard.offer}</h3>
+          <ArrowUpRight class="shrink-0 text-[#d9aa59]" size={22} strokeWidth={2.4} />
+        </div>
+        <p class="mt-2 font-semibold text-white/72">{profileCard.note}</p>
+      </a>
+    </div>
+
+    <div class="max-w-2xl">
+      <p class="section-kicker" data-animate>
+        <Sparkles size={16} />
+        Premium Availability
+      </p>
+      <h2 class="mt-6 text-balance text-4xl font-black leading-tight tracking-[0] text-white sm:text-5xl" data-animate>
+        Book a focused build session for your next web, app, or automation project.
+      </h2>
+      <p class="mt-5 text-pretty text-lg leading-8 text-white/64" data-animate>
+        A clear entry point for clients who want Laravel platforms, Vue.js or Next.js products, Flutter apps, and AI automation workflows built with care.
+      </p>
+
+      <div class="mt-8 grid gap-3 sm:grid-cols-3">
+        <div class="glass-panel rounded-[1.1rem] p-4" data-animate>
+          <CalendarCheck class="text-[#32f5c8]" size={24} strokeWidth={2} />
+          <p class="mt-4 text-sm font-black uppercase text-white/52">Strategy</p>
+          <p class="mt-1 font-black text-white">15-min call</p>
+        </div>
+        <div class="glass-panel rounded-[1.1rem] p-4" data-animate>
+          <Code2 class="text-[#59d7ff]" size={24} strokeWidth={2} />
+          <p class="mt-4 text-sm font-black uppercase text-white/52">Scope</p>
+          <p class="mt-1 font-black text-white">Web to automation</p>
+        </div>
+        <div class="glass-panel rounded-[1.1rem] p-4" data-animate>
+          <BadgeCheck class="text-[#d9aa59]" size={24} strokeWidth={2} />
+          <p class="mt-4 text-sm font-black uppercase text-white/52">Status</p>
+          <p class="mt-1 font-black text-white">Open for work</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

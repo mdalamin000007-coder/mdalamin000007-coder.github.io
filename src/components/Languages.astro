@@ -1,0 +1,35 @@
+---
+import { Languages as LanguagesIcon } from "lucide-astro";
+import { languages } from "../data/portfolio";
+---
+
+<section id="languages" class="section-pad relative overflow-hidden" data-section>
+  <div class="site-shell">
+    <div class="mx-auto max-w-3xl text-center">
+      <p class="section-kicker" data-animate>
+        <LanguagesIcon size={16} />
+        Languages
+      </p>
+      <h2 class="mt-6 text-balance text-4xl font-black leading-tight tracking-[0] text-white sm:text-5xl" data-animate>
+        Communicates across five languages.
+      </h2>
+      <p class="mx-auto mt-5 max-w-2xl text-pretty text-lg leading-8 text-white/62" data-animate>
+        A multilingual communication range that supports international clients, cross-cultural teams, and clearer product collaboration.
+      </p>
+    </div>
+
+    <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+      {
+        languages.map((language, index) => (
+          <article class="language-card glass-panel rounded-[1.25rem] p-5 text-center">
+            <div class="mx-auto grid size-12 place-items-center rounded-2xl border border-white/10 bg-white/8 text-lg font-black text-[#32f5c8]">
+              {String(index + 1).padStart(2, "0")}
+            </div>
+            <h3 class="mt-5 text-xl font-black text-white">{language}</h3>
+            <p class="mt-2 text-sm font-semibold uppercase tracking-[0] text-white/44">Communication</p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,37 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+import "../styles/global.css";
+
+const {
+  title = "Mohammad Al Amin | Web Developer",
+  description =
+    "Premium personal portfolio for Mohammad Al Amin, a Computer Science student at Islamic University of Madinah and Web Developer at Artemesis Company."
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#020607" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preload" as="image" href="/images/hero-workspace.png" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/images/hero-workspace.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body>
+    <div class="page-transition fixed inset-0 z-[90] bg-[#020607]" aria-hidden="true"></div>
+    <slot />
+  </body>
+</html>

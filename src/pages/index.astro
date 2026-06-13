@@ -1,0 +1,39 @@
+---
+import About from "../components/About.astro";
+import ChatBot from "../components/ChatBot.astro";
+import Contact from "../components/Contact.astro";
+import DirectChannels from "../components/DirectChannels.astro";
+import Experience from "../components/Experience.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
+import Languages from "../components/Languages.astro";
+import ProfileBookingCard from "../components/ProfileBookingCard.astro";
+import Projects from "../components/Projects.astro";
+import Skills from "../components/Skills.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+  <Header />
+  <main>
+    <Hero />
+    <ProfileBookingCard />
+    <About />
+    <Skills />
+    <Projects />
+    <Experience />
+    <Languages />
+    <Contact />
+    <DirectChannels />
+  </main>
+  <Footer />
+  <ChatBot />
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+</BaseLayout>
+
+<script>
+  import "../scripts/animations";
+  import "../scripts/chatbot";
+</script>

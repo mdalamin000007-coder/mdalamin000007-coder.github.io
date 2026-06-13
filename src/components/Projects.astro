@@ -1,0 +1,56 @@
+---
+import { ArrowUpRight } from "lucide-astro";
+import { projects } from "../data/portfolio";
+---
+
+<section id="projects" class="section-pad relative overflow-hidden" data-section>
+  <div class="site-shell">
+    <div class="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
+      <div class="max-w-3xl">
+        <p class="section-kicker" data-animate>Selected Projects</p>
+        <h2 class="mt-6 text-balance text-4xl font-black leading-tight tracking-[0] text-white sm:text-5xl" data-animate>
+          Premium builds shaped for clarity, scale, and impact.
+        </h2>
+      </div>
+      <p class="max-w-md text-pretty text-lg leading-8 text-white/62" data-animate>
+        A focused showcase of product thinking, clean UI systems, responsive implementation, and automation-aware engineering.
+      </p>
+    </div>
+
+    <div class="mt-12 grid gap-5 lg:grid-cols-3">
+      {
+        projects.map((project) => (
+          <article class="project-card glass-panel group overflow-hidden rounded-[1.4rem]">
+            <a href={project.href} class="block" aria-label={`View details for ${project.name}`}>
+              <div class="relative aspect-[16/10] overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={`${project.name} project interface preview`}
+                  class="project-image h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                  loading="lazy"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-[#020607]/72 via-transparent to-transparent"></div>
+              </div>
+              <div class="p-6">
+                <div class="flex items-start justify-between gap-4">
+                  <h3 class="text-2xl font-black text-white">{project.name}</h3>
+                  <span class="project-icon grid size-10 shrink-0 place-items-center rounded-full border border-white/12 bg-white/8 text-[#32f5c8]">
+                    <ArrowUpRight size={19} strokeWidth={2.2} />
+                  </span>
+                </div>
+                <p class="mt-4 min-h-28 text-pretty leading-7 text-white/62">{project.description}</p>
+                <div class="mt-6 flex flex-wrap gap-2">
+                  {project.tech.map((item) => (
+                    <span class="rounded-full border border-white/10 bg-white/7 px-3 py-1 text-xs font-bold text-white/70">
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </a>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

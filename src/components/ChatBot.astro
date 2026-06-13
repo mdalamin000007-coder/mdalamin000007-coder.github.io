@@ -1,0 +1,79 @@
+---
+import { Bot, MessageCircle, Send, Sparkles, X } from "lucide-astro";
+
+const quickPrompts = [
+  "What services do you offer?",
+  "Show me the projects",
+  "Tell me about experience",
+  "How can I contact you?"
+];
+---
+
+<aside class="chatbot-widget" data-chatbot aria-label="Portfolio chatbot">
+  <section id="portfolio-chatbot" class="chatbot-panel glass-panel" data-chatbot-panel aria-label="Chat with portfolio assistant">
+    <div class="flex items-center justify-between gap-4 border-b border-white/10 p-4">
+      <div class="flex min-w-0 items-center gap-3">
+        <div class="grid size-11 shrink-0 place-items-center rounded-2xl bg-[#32f5c8] text-[#02100d]">
+          <Bot size={22} strokeWidth={2.4} />
+        </div>
+        <div class="min-w-0">
+          <h2 class="truncate text-base font-black text-white">Al Amin Assistant</h2>
+          <p class="mt-1 flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0] text-[#32f5c8]">
+            <span class="size-1.5 rounded-full bg-[#32f5c8]"></span>
+            Online
+          </p>
+        </div>
+      </div>
+
+      <button type="button" class="chatbot-icon-button magnetic" data-chatbot-close aria-label="Close chat">
+        <X size={19} strokeWidth={2.2} />
+      </button>
+    </div>
+
+    <div class="chatbot-messages" data-chatbot-messages aria-live="polite">
+      <div class="chat-message bot">
+        <div class="chat-bubble">
+          Assalamu alaikum. I can help you explore Mohammad Al Amin's skills, projects, experience, languages, and contact options.
+        </div>
+      </div>
+    </div>
+
+    <div class="chatbot-prompts" aria-label="Suggested questions">
+      {
+        quickPrompts.map((prompt) => (
+          <button type="button" class="chatbot-chip magnetic" data-chat-prompt={prompt}>
+            {prompt}
+          </button>
+        ))
+      }
+    </div>
+
+    <form class="chatbot-form" data-chatbot-form>
+      <label class="sr-only" for="chatbot-input">Message</label>
+      <input
+        id="chatbot-input"
+        data-chatbot-input
+        type="text"
+        autocomplete="off"
+        placeholder="Ask about projects, skills, contact..."
+      />
+      <button type="submit" aria-label="Send message">
+        <Send size={18} strokeWidth={2.4} />
+      </button>
+    </form>
+  </section>
+
+  <button
+    type="button"
+    class="chatbot-toggle magnetic"
+    data-chatbot-toggle
+    aria-expanded="false"
+    aria-controls="portfolio-chatbot"
+  >
+    <span class="grid size-11 place-items-center rounded-full bg-[#32f5c8] text-[#02100d]">
+      <MessageCircle size={22} strokeWidth={2.4} />
+    </span>
+    <span class="hidden sm:block">Ask Assistant</span>
+    <Sparkles class="hidden text-[#d9aa59] sm:block" size={18} strokeWidth={2.2} />
+  </button>
+</aside>

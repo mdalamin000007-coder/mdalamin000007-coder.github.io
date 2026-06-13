@@ -1,0 +1,85 @@
+---
+import { ArrowUpRight, MessageCircle, MessageSquare, Send } from "lucide-astro";
+import { socialLinks } from "../data/portfolio";
+
+const [primaryContact, ...secondaryLinks] = socialLinks;
+---
+
+<section id="contact" class="section-pad relative overflow-hidden bg-white/[0.025]" data-section>
+  <div class="site-shell grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
+    <div>
+      <p class="section-kicker" data-animate>Contact</p>
+      <h2 class="mt-6 text-balance text-4xl font-black leading-tight tracking-[0] text-white sm:text-5xl" data-animate>
+        Have a serious web, mobile, or automation idea?
+      </h2>
+      <p class="mt-5 max-w-xl text-pretty text-lg leading-8 text-white/64" data-animate>
+        Reach out for Laravel websites, Vue.js and Next.js apps, Flutter products, or AI automation workflows.
+      </p>
+
+      <div class="mt-8 space-y-3" data-animate>
+        <a href={primaryContact.href} target="_blank" rel="noreferrer" class="magnetic glass-panel flex items-center justify-between rounded-[1.1rem] p-4 text-white transition hover:border-[#32f5c8]/45">
+          <span class="flex min-w-0 items-center gap-3">
+            <MessageCircle size={20} class="shrink-0 text-[#32f5c8]" />
+            <span class="min-w-0">
+              <span class="block text-sm font-bold uppercase text-white/45">{primaryContact.label}</span>
+              <span class="block truncate">{primaryContact.value}</span>
+            </span>
+          </span>
+          <ArrowUpRight size={18} />
+        </a>
+        <div class="grid grid-cols-2 gap-3 sm:grid-cols-3">
+          {
+            secondaryLinks.map((link) => (
+              <a
+                href={link.href}
+                target="_blank"
+                rel="noreferrer"
+                class="magnetic rounded-full border border-white/10 bg-white/7 px-4 py-3 text-center text-sm font-bold text-white/72 transition hover:border-[#32f5c8]/45 hover:text-white"
+              >
+                {link.label}
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+
+    <form class="contact-form glass-panel rounded-[1.45rem] p-5 sm:p-7" data-animate>
+      <div class="mb-6 flex items-center gap-3">
+        <div class="grid size-11 place-items-center rounded-2xl bg-[#32f5c8] text-[#02100d]">
+          <MessageSquare size={22} strokeWidth={2.4} />
+        </div>
+        <div>
+          <h3 class="text-xl font-black text-white">Start a conversation</h3>
+          <p class="mt-1 text-sm text-white/50">Share the scope, then continue on WhatsApp.</p>
+        </div>
+      </div>
+
+      <div class="grid gap-4 sm:grid-cols-2">
+        <label class="block">
+          <span class="mb-2 block text-sm font-bold text-white/68">Name</span>
+          <input type="text" name="name" placeholder="Your name" class="w-full rounded-[1rem] border border-white/10 bg-white/[0.055] px-4 py-3.5 text-white outline-none transition placeholder:text-white/28 focus:border-[#32f5c8]/60" />
+        </label>
+        <label class="block">
+          <span class="mb-2 block text-sm font-bold text-white/68">Email</span>
+          <input type="email" name="email" placeholder="you@example.com" class="w-full rounded-[1rem] border border-white/10 bg-white/[0.055] px-4 py-3.5 text-white outline-none transition placeholder:text-white/28 focus:border-[#32f5c8]/60" />
+        </label>
+      </div>
+
+      <label class="mt-4 block">
+        <span class="mb-2 block text-sm font-bold text-white/68">Project Type</span>
+        <input type="text" name="project" placeholder="Website, app, automation..." class="w-full rounded-[1rem] border border-white/10 bg-white/[0.055] px-4 py-3.5 text-white outline-none transition placeholder:text-white/28 focus:border-[#32f5c8]/60" />
+      </label>
+
+      <label class="mt-4 block">
+        <span class="mb-2 block text-sm font-bold text-white/68">Message</span>
+        <textarea name="message" rows="5" placeholder="Tell me about the goal, timeline, and scope." class="w-full resize-none rounded-[1rem] border border-white/10 bg-white/[0.055] px-4 py-3.5 text-white outline-none transition placeholder:text-white/28 focus:border-[#32f5c8]/60"></textarea>
+      </label>
+
+      <button type="button" class="premium-button button-primary magnetic mt-6 w-full">
+        Send Message
+        <Send size={18} strokeWidth={2.4} />
+      </button>
+    </form>
+  </div>
+</section>

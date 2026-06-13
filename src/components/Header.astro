@@ -1,0 +1,36 @@
+---
+import { ArrowUpRight } from "lucide-astro";
+import { navItems } from "../data/portfolio";
+---
+
+<header class="fixed left-0 right-0 top-0 z-50 px-4 pt-4" data-header>
+  <div class="site-shell">
+    <nav
+      class="glass-panel flex min-h-16 items-center justify-between rounded-full px-4 text-sm text-white/84 md:px-5"
+      aria-label="Primary navigation"
+    >
+      <a href="#home" class="magnetic flex items-center gap-3 font-black text-white" aria-label="Mohammad Al Amin home">
+        <span class="grid size-10 place-items-center rounded-full bg-white text-sm text-[#02100d]">MA</span>
+        <span class="hidden sm:block">Mohammad Al Amin</span>
+      </a>
+
+      <div class="hidden items-center gap-1 lg:flex">
+        {
+          navItems.map((item) => (
+            <a
+              href={item.href}
+              class="magnetic rounded-full px-4 py-2 text-white/68 transition hover:bg-white/8 hover:text-white"
+            >
+              {item.label}
+            </a>
+          ))
+        }
+      </div>
+
+      <a href="#contact" class="premium-button button-secondary magnetic min-h-11 px-4 text-sm">
+        Hire Me
+        <ArrowUpRight size={17} strokeWidth={2.4} />
+      </a>
+    </nav>
+  </div>
+</header>
